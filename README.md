@@ -53,16 +53,16 @@ expo start
 
 ### Telas
 <div align="center">
+    <img src=".github\recording.gif" title="Screen recording" alt="Screen recording"  width="200px">
     <img alt="Page 1" title="Page 1" src=".github\screen_1.jpg?raw=true" width="200px" />
     <img alt="Page 2" title="Page 2" src=".github\screen_2.jpg?raw=true" width="200px" />
-    <img alt="Page 3" title="Page 3" src=".github\screen_3.jpg?raw=true" width="200px" />
 </div>
 
 </br>
 </br>
 
 <div align="center">
+    <img alt="Page 3" title="Page 3" src=".github\screen_3.jpg?raw=true" width="200px" />
     <img alt="Page 4" title="Page 4" src=".github\screen_4.jpg?raw=true" width="200px" />
     <img alt="Page 5" title="Page 5" src=".github\screen_5.jpg?raw=true" width="200px" />
-    <a href=""><img src=".github\recording.gif" title="fire_animation" alt="fire_animation"  width="200px"></a>
 </div>
