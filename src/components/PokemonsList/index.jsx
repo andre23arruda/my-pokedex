@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { FlatList } from 'react-native'
 
 // custom components
+import Loading from '../Loading'
 import MainScreen from '../MainScreen'
 import PokemonCard from '../PokemonCard'
 
@@ -20,10 +21,11 @@ const maxOffset = lastPokemon - (requestLimit + initialOffset)
 function PokemonsList() {
     const [data, setData] = useState(pokemons)
     const [loading, setLoading] = useState(false)
+    const [finished, setFinished] = useState(false)
     const [offset, setOffset] = useState(initialOffset)
 
     async function loadPokemons() {
-        if (loading) {
+        if (loading || finished) {
             return
         }
 
@@ -34,7 +36,7 @@ function PokemonsList() {
             setData([...data, ...response.results])
             setOffset(offset + requestLimit)
         } else {
-            setLoading(true)
+            setFinished(true)
             const response = await getApi(`pokemon?limit=${ lastPokemon - offset }&offset=${ offset }`)
             setData([...data, ...response.results])
         }
@@ -51,9 +53,11 @@ function PokemonsList() {
                 columnWrapperStyle={{ justifyContent: 'space-between' }}
                 numColumns={ 2 }
                 onEndReached={ loadPokemons }
-                onEndReachedThreshold={ 0.25 }
+                onEndReachedThreshold={ 0.5 }
                 showsVerticalScrollIndicator={ false }
             />
+
+            { loading && <Loading />}
         </MainScreen>
 	)
 }

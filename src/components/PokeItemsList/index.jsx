@@ -2,8 +2,9 @@ import React, { useState } from 'react'
 import { FlatList } from 'react-native'
 
 // custom components
-import PokeItemCard from '../PokeItemCard'
+import Loading from '../Loading'
 import MainScreen from '../MainScreen'
+import PokeItemCard from '../PokeItemCard'
 
 // utils
 import { getApi } from '../../services/api'
@@ -44,9 +45,11 @@ function PokeItemsList() {
                 columnWrapperStyle={{ justifyContent: 'space-between' }}
                 numColumns={ 2 }
                 onEndReached={ loadPokeItems }
-                onEndReachedThreshold={ 0.25 }
+                onEndReachedThreshold={ 0.5 }
                 showsVerticalScrollIndicator={ false }
             />
+
+            { loading && <Loading />}
         </MainScreen>
 	)
 }
